@@ -1,0 +1,8 @@
+module.exports = {
+  fixed: function (num, precise = 2) {
+    return typeof num === 'undefined' ? '0.00' : Number(num).toFixed(precise);
+  },
+  numberToPercentage: function (number) {
+    return number * 100 + '%'
+  }
+}

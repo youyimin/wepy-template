@@ -1,0 +1,85 @@
+@function rpx($value) {
+  @return $value * 1rpx;
+}
+
+$orange: #F08642;
+
+$border-grey: #e5e5e5;
+
+$text-normal: #4a4a4a;
+$text-grey: #848484;
+$text-light-grey: #C4C4C4;
+$text-orange: $orange;
+$text-green: #51B0B0;
+
+$bg-green: #65C6C6;
+$bg-orange: $orange;
+$bg-light-orange: #F1A156;
+@mixin fontSize_lineHeight($fontSize,$lineHeight) {
+  font-size: rpx($fontSize);
+  line-height: rpx($lineHeight);
+}
+
+@mixin ellipsis() {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin vertical-ellipsis($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+@mixin clearfix {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin hairline($border-retina-color: $border-grey) {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0 solid $border-retina-color;
+}
+
+@mixin tag {
+  box-sizing: border-box;
+  line-height: 16px;
+  padding: 0 5px;
+  border-radius: 2px;
+  font-size: 11px;
+}
+
+@mixin vertical_horizontal_center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin resetButton() {
+  background: transparent;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  &:after {
+    display: none;
+  }
+}

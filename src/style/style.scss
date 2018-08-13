@@ -1,0 +1,93 @@
+@import "mixin";
+@import "./font-icon";
+
+.image-wrapper {
+  font-size: 0;
+}
+
+.button-reset {
+  @include resetButton;
+}
+
+.hide {
+  display: none !important;
+}
+
+//table layout
+.table {
+  display: table;
+  .row {
+    display: table-row;
+  }
+  .cell {
+    display: table-cell;
+  }
+  .cpt {
+    display: table-caption;
+    text-align: center;
+  }
+  .thc {
+    display: table-cell;
+    text-align: center;
+    font-weight: bold;
+  }
+  .tbody {
+    display: table-row-group;
+  }
+  .thead {
+    display: table-header-group;
+  }
+}
+
+//spacing helpers
+$spaceamounts: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side,0,1)}-#{$space} {
+      margin-#{$side}: #{$space}rpx !important;
+    }
+    .p-#{str-slice($side,0,1)}-#{$space} {
+      padding-#{$side}: #{$space}rpx !important;
+    }
+  }
+}
+
+//flex-grid
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 0;
+  &--column {
+    flex-direction: column;
+  }
+}
+
+.align-right {
+  justify-content: flex-end;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.align-justify {
+  justify-content: space-between;
+}
+
+.align-spaced {
+  justify-content: space-around;
+}
+
+.align-middle {
+  align-items: center;
+}
+
+.align-top {
+  align-items: flex-start;
+}
+
+.columns {
+  flex: 1;
+}
